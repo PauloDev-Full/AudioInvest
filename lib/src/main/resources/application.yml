@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: projeto
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/investment
+    username: app
+    password: app
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  docker:
+    compose:
+      enabled: false
+
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 25MB
+
+  ai:
+    model:
+      audio:
+        transcription: openai
+        speech: openai
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-4o-mini
+      audio:
+        transcription:
+          options:
+            model: whisper-1
+            language: pt
+            temperature: 0
+            response-format: text
+            prompt: >
+              CDB, LCI, LCA, Tesouro Selic, Tesouro Direto, Tesouro IPCA,
+              Nubank, Banco Inter, XP, BTG, acoes, fundo imobiliario, ETF,
+              aporte, aportei, apliquei, investi, comprei, reais, centavos.
+        speech:
+          options:
+            model: gpt-4o-mini-tts
+            voice: nova
+            response-format: mp3
+
+server:
+  port: 8090
+
+logging:
+  level:
+    org.springframework.ai: DEBUG
