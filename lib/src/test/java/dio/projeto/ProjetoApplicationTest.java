@@ -13,7 +13,6 @@ class BudgetingApplicationTests {
     @Test
     void testCriarTabelaEGravarDado() {
         System.out.println(">>> FORÇANDO A CRIAÇÃO DA TABELA NO POSTGRESQUE <<<");
-        // O próprio Spring Boot vai ler a sua entidade e criar a tabela agora!
        
     }
     
@@ -25,7 +24,6 @@ class BudgetingApplicationTests {
         System.out.println("=================================================");
         System.out.println(">>> BUSCANDO DADOS DO POSTGRESQL VIA SPRING AI <<<");
         
-        // Busca no banco do Docker usando a sua interface oficial
         java.util.List<dio.projeto.domain.Investment> lista = 
             investmentRepository.findAllByCategory(dio.projeto.domain.Category.EQUITIES);
         
