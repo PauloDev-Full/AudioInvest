@@ -22,7 +22,7 @@ public class OpenAiTranscriptionModelIT {
     })
     public void should_containExpectedKeywords_when_audioFilesAreProcessed(String fileName, String expectedKeyword) {
     	var recording = new org.springframework.core.io.FileSystemResource(
-    	        "C:/Users/redmi/eclipse-workspace/conclusao/lib/src/test/java/dio/audio/" + fileName
+    	        "C:/User/eclipse-workspace/conclusao/lib/src/test/java/dio/audio/" + fileName
     	);
 
         var response = openAiTranscriptionModel.call(recording);
